@@ -3,6 +3,7 @@ import datetime
 import numpy as np
 import os
 from flask import Flask, render_template, request
+import torch
 
 from src import clean_img
 
@@ -31,7 +32,8 @@ def hello_world():
         out_path = cln_img_dir + filename + "_cleaned.jpg"
 
         clean = clean_img.Clean()
-        clean.main(img_path, out_path, gpu=False)
+        gpu = True if torch.cuda.is_available() else False
+        clean.main(img_path, out_path, gpu=gpu)
         os.remove(img_path)
     #### 保存した画像ファイルのpathをHTMLに渡す
         return render_template('index.html', img_path=out_path) 
