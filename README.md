@@ -1,5 +1,5 @@
 # clean_img_webapp
-https://github.com/bilibili/ailab をWebから動かせるようにFlask実装
+https://github.com/bilibili/ailab をWebから簡単に動かせるようにFlask実装
 
 ## Get Start
 
